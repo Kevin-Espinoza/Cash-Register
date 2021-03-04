@@ -56,7 +56,6 @@ public:
     void coins_pennies_empty();
 
 
-    // TODO: Make these print properly
     // Print the Register
     void print();
 
