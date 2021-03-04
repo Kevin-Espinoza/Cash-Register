@@ -1,12 +1,10 @@
 
 // main.cpp
-// TODO: Split files once the program works
 
 #include <iostream>
 
 #include "Register.h"
 #include "registerState.h"
-
 
 
 
@@ -18,6 +16,7 @@ int main(){
     std::cout << "Welcome to your register. Would you like to checkout or add money?\n";
     std::cout << "1: Checkout    2: Add Money\n";
     std::cin >> register_state;
+
 
     // Check user input and run proper program state
     switch (register_state){
@@ -35,6 +34,8 @@ int main(){
     }
 
 
+    // Print the current contents of the Register
+    registerObj.print();
 
     return 0;
 }
