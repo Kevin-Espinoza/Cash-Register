@@ -2,17 +2,18 @@
 // register.cpp
 #include "Register.h"
 #include <iostream>
+#include <iomanip>
 
 
-// Default Constructor
-Register::Register () {}
 // Custom Constructor
 Register::Register (int bills_hundreds, int bills_fifties, int bills_twenties, int bills_tens, 
           int bills_fives, int bills_ones, int coins_quarters, int coins_dimes, 
           int coins_nickels, int coins_pennies) :
-          _bills_hundreds(bills_hundreds), _bills_fifties(bills_fifties), 
-          _bills_twenties(bills_twenties), _bills_tens(bills_tens), _bills_fives(bills_fives), _bills_ones(bills_ones), 
-          _coins_quarters(coins_quarters), _coins_dimes(coins_dimes), _coins_nickels(coins_nickels), _coins_pennies(coins_pennies) {}
+          _bills_hundreds(bills_hundreds), _bills_fifties(bills_fifties), _bills_twenties(bills_twenties), 
+          _bills_tens(bills_tens), _bills_fives(bills_fives), _bills_ones(bills_ones), 
+          _coins_quarters(coins_quarters), _coins_dimes(coins_dimes), _coins_nickels(coins_nickels), 
+          _coins_pennies(coins_pennies) 
+{}
 
 
 // Updaters: The Register only lets you add or remove money, it does not let you explicitly change a value
@@ -58,10 +59,11 @@ void Register::coins_pennies_empty()  { if (_coins_pennies < 1) _coins_pennies +
 // TODO: Make these print properly and try making an Operator Overload function
 // Print the Register
 void Register::print(){
-    std::cout << "Hundreds: " << _bills_hundreds << "\nFifties: " << _bills_fifties << 
-                 "\nTwenties: " << _bills_twenties << "\nTens: " << _bills_tens << 
-                 "\nFives" << _bills_fives << "\nOnes: " << _bills_ones << 
-                 "\nQuarters: " << _coins_quarters << "\nDimes: " << _coins_dimes <<
-                 "\nNickels: " << _coins_nickels << "\nPennies: " << _coins_pennies;
+    std::cout << "\nRegister Contains: \n" << "------------------";
+    std::cout << "\nHundreds: " << std::setw(4) << _bills_hundreds << "\nFifties: " << std::setw(5) << _bills_fifties 
+              << "\nTwenties: " << std::setw(4) <<_bills_twenties << "\nTens: " << std::setw(8) << _bills_tens 
+              << "\nFives: " << std::setw(8) << _bills_fives << "\nOnes: " << std::setw(9) << _bills_ones 
+              << "\nQuarters: " << std::setw(5) << _coins_quarters << "\nDimes: " << std::setw(8) << _coins_dimes
+              << "\nNickels: " << std::setw(6) << _coins_nickels << "\nPennies: " << std::setw(6) << _coins_pennies << "\n";  
 }
 
